@@ -37,27 +37,37 @@ ruolo e la stringa della foto */
 
 // Ciclo for in per stampare in console tutte le definizioni presenti
 for (let i = 0; i < team.length; i++) {
-    const datiUtenti = team[i];
+    const member = team[i]; //singolo elemento del team
 
     console.log(`Utente in posizione ${i}`);
-    console.log(datiUtenti.name);
-    console.log(datiUtenti.role);
-    console.log(datiUtenti.image);
+    console.log(member.name);
+    console.log(member.role);
+    console.log(member.image);
     console.log('_______________________');
 
 }
+
+//CORREZZIONE
+
+ 
+
 
 /* MILESTONE 2 (se ce la fai falla entro le 18 
 altrimenti puoi consegnare anche dopo le 18 - easy):
 stampare le stesse informazioni su DOM sottoforma di stringhe */
 
-/* const elementoDom = document.querySelector(".row")
+/*  const teamElement = document.querySelector(".row")
 
 for (let i = 0; i < team.length; i++) {
-    const datiUtenti = team[i]; 
-    let divElement = document.createElement("div");
-    divElement.innerHTML = `Il dati degli utenti sono: ${datiUtenti.name} - ${datiUtenti.role} - ${datiUtenti.image};`
-    elementoDom.appendChild(divElement);
+    const member = team[i]; 
+    const memberMarkup = `
+    <div class="member">
+        <p>${member.name}<p>
+        <p>${member.role}<p>
+        <p>${member.image}<p>
+    </div>
+    `
+    teamElement.insertAdjacentHTML("beforeend" , memberMarkup)
     
   } */
 
@@ -70,19 +80,24 @@ trasformare la stringa foto in una immagine effettiva
 (solo se non sei giá fuso):
 organizzare i singoli membri in card/schede */
 
-let arrayUtenti = []
 
+/* BONUS 1 */
+
+const teamElement = document.querySelector(".row")
 
 for (let i = 0; i < team.length; i++) {
-    const elementoDomTitle = document.querySelector(".card-title")
-    const elementoDomParagrph = document.querySelector(".card-text")
-    const datiUtenti = team[i];
+    const member = team[i]; 
+    const memberMarkup = `
+    <div class="member">
+        <p>${member.name}<p>
+        <p>${member.role}<p>
+        <img src="./assets/img/${member.image}"><img>
+    </div>
+    `
+    teamElement.insertAdjacentHTML("beforeend" , memberMarkup)
+    
+  }
 
-    arrayUtenti.push(datiUtenti.name)
-    arrayUtenti.push(datiUtenti.role)
-    elementoDomTitle.innerHTML = arrayUtenti[0];
-    elementoDomParagrph.innerHTML = arrayUtenti[7];
-}  
 
 
 //Come mai punta solo al primo elemento della DOM??
